@@ -1,0 +1,312 @@
+body {
+  /* Mengatur font, margin, dan padding body */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  /* Mengatur gambar latar belakang, ukuran, posisi, dan pengulangan */
+  background-image: url('backroundml.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}.container {
+  /* Membuat flexbox container untuk mengatur item secara horizontal dan vertikal */
+  display: flex;
+  justify-content: center; /* Mengatur item ke tengah secara horizontal */
+  align-items: center; /* Mengatur item ke tengah secara vertikal */
+  height: 100vh; /* Mengatur tinggi container ke 100% dari viewport height */
+  overflow: hidden; /* Menyembunyikan konten yang meluap dari container */
+  width: 100%; /* Mengatur lebar container ke 100% */
+}.panel-wrapper {
+  /* Membuat flexbox container untuk panel */
+  display: flex;
+  gap: 15px; /* Mengatur jarak antar panel */
+  transition: transform 0.5s ease; /* Menambahkan transisi untuk transform */
+  width: max-content; /* Mengatur lebar container agar sesuai dengan konten */
+}
+
+/* Animasi untuk membuat panel memantul */
+@keyframes panel-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Animasi untuk membuat efek berkedip pada panel */
+@keyframes blink-effect {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Animasi untuk membuat efek berkedip diagonal */
+@keyframes diagonal-blink {
+  0% {
+    transform: translate(100%, -100%) scaleX(0.2);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(50%, -50%) scaleX(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0, 0) scaleX(0.2);
+    opacity: 0;
+  }
+}
+
+/* Animasi untuk membuat sorotan dinamis */
+@keyframes dynamic-highlight {
+  0% {
+    clip-path: polygon(0% 0%, 10% 0%, 0% 100%, 0% 100%);
+    opacity: 0.5;
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+    opacity: 0.8;
+  }
+  100% {
+    clip-path: polygon(0% 0%, 10% 0%, 0% 100%, 0% 100%);
+    opacity: 0;
+  }
+}.panel {
+  /* Mengatur ukuran, latar belakang, border, dan efek bayangan panel */
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(145deg, #2c2c54, #40407a);
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  animation: panel-bounce 3s ease-in-out infinite, blink-effect 2s infinite;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}.panel::after {
+  /* Menambahkan elemen pseudo setelah panel untuk efek sorotan */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: dynamic-highlight 3s infinite;
+  pointer-events: none;
+}.panel.show {
+  /* Menampilkan panel */
+  opacity: 1;
+  transform: translateX(0);
+}.panel.hide {
+  /* Menyembunyikan panel */
+  opacity: 0;
+  transform: translateX(100%);
+}.panel:hover {
+  /* Efek hover pada panel */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+}.panel-image {
+  /* Mengatur gambar di dalam panel */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}.panel:hover.panel-image {
+  /* Efek hover pada gambar di dalam panel */
+  transform: scale(1.1);
+}.hero-display,.skin-display {
+  /* Mengatur tampilan hero dan skin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  z-index: 1000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mengatur latar belakang untuk setiap hero */.hero-display[data-hero="1"] {
+  background-image: url('lunoxbg.jpg');
+}.hero-display[data-hero="2"] {
+  background-image: url('kaditabg.jpg');
+}.hero-display[data-hero="3"] {
+  background-image: url('vexanabg.jpg');
+}.hero-display[data-hero="4"] {
+  background-image: url('valentinabg.jpg');
+}.hero-display[data-hero="5"] {
+  background-image: url('louyibg.jpg');
+}
+
+/* Mengatur latar belakang untuk setiap skin */.skin-display[data-hero="1"] {
+  background-image: url('lunoxbg.jpg');
+}.skin-display[data-hero="2"] {
+  background-image: url('kaditabg.jpg');
+}.skin-display[data-hero="3"] {
+  background-image: url('vexanabg.jpg');
+}.skin-display[data-hero="4"] {
+  background-image: url('valentinabg.jpg');
+}.skin-display[data-hero="5"] {
+  background-image: url('louyibg.jpg');
+}.hero-image {
+  /* Mengatur gambar hero */
+  max-width: 100%;
+  max-height: 300px;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}.skin-content,.hero-content {
+  /* Mengatur konten skin dan hero */
+  text-align: center;
+  background: rgba(44, 44, 84, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  width: 600px;
+  overflow-y: auto;
+  max-height: 90vh;
+  display: block; 
+  margin-top: 10px;
+}.buttons {
+  /* Membuat flexbox container untuk tombol */
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  /* Mengatur tampilan tombol */
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #3498db;
+  color: white;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  /* Efek hover pada tombol */
+  background: #2980b9;
+  transform: scale(1.05);
+}.skin-grid {
+  /* Membuat flexbox container untuk skin */
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}.skin-item {
+  /* Mengatur item skin */
+  flex: 1;
+  max-width: 150px;
+  text-align: center;
+}.skin-item img.skin-image,.skin-item video.skin-video {
+  /* Mengatur gambar dan video skin */
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}.skin-description {
+  /* Mengatur deskripsi skin */
+  font-size: 14px;
+  color: #ccc;
+}.panel[data-id="2"].panel-image,.panel[data-id="3"].panel-image,.panel[data-id="4"].panel-image {
+  /* Mengatur posisi gambar untuk panel tertentu */
+  object-position: top;
+}.overlay {
+  /* Mengatur overlay untuk gambar yang diperbesar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}.zoomed-image {
+  /* Mengatur gambar yang diperbesar */
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+}.close-zoom {
+  /* Mengatur tombol tutup untuk gambar yang diperbesar */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50%;
+  background: #ff4757;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}.close-zoom:hover {
+  /* Efek hover pada tombol tutup */
+  background: #ff6b81;
+  transform: scale(1.1);
+}.hero-name {
+  /* Mengatur nama hero */
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Animasi untuk memperbesar gambar */
+@keyframes zoomIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}.overlay.zoomed-image {
+  animation: zoomIn 0.5s forwards;
+}.hero-content {
+  /* Menambahkan animasi zoom-in pada hero content */
+  animation: zoom-in 0.5s ease forwards;
+}.panel.clicked {
+  /* Menambahkan animasi scale-up pada panel yang diklik */
+  animation: scale-up 0.5s forwards;
+}
+
+/* Animasi untuk memperbesar panel */
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.panel[data-id="2"] .panel-image,
+.panel[data-id="3"] .panel-image,
+.panel[data-id="4"] .panel-image {
+  object-position: top;
+}

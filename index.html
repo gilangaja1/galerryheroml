@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="panel-wrapper">
+      <div class="panel" data-id="1" data-hero="lunoxpanel.jpg" data-skins="lunoxlegend.mp4,lunoxelite.jpg,lunoxepic.jpg"
+        data-description="Lunox adalah penyihir yang mengendalikan keseimbangan antara cahaya dan kegelapan.">
+        <div class="hero-name">Lunox</div>
+        <img src="lunoxpanel.jpg" alt="Hero 1" class="panel-image">
+      </div>
+      <div class="panel" data-id="2" data-hero="kaditapanel.jpg" data-skins="kaditaspecial.jpg,kaditahype.jpg,kaditacreate.jpg"
+        data-description="Kadita adalah ratu lautan dengan kekuatan ombak yang mematikan.">
+        <div class="hero-name">Kadita</div>
+        <img src="kaditapanel.jpg" alt="Hero 2" class="panel-image">
+      </div>
+      <div class="panel" data-id="3" data-hero="vexanapanel.jpg" data-skins="vexanacc.jpg,vexanastarliht.jpg,vexanazenith.jpg"
+        data-description="Vexana adalah penyihir kegelapan yang mampu menghidupkan kembali pasukan bayangan.">
+        <div class="hero-name">Vexana</div>
+        <img src="vexanapanel.jpg" alt="Hero 3" class="panel-image">
+      </div>
+      <div class="panel" data-id="4" data-hero="valentinapanel.jpg" data-skins="valentinacc.jpg,valentinaelite.jpg,valentinamsc.jpg"
+        data-description="Valentina adalah seorang penyihir bangsawan yang bisa meniru skill musuh.">
+        <div class="hero-name">Valentina</div>
+        <img src="valentinapanel.jpg" alt="Hero 4" class="panel-image">
+      </div>
+      <div class="panel" data-id="5" data-hero="louyihero.jpg" data-skins="louyiepic.mp4,louyicc.jpg,louyiepicbiru.jpg"
+        data-description="Lou Yi adalah pengendali elemen Yin dan Yang yang dapat memindahkan sekutunya.">
+        <div class="hero-name">Lou Yi</div>
+        <img src="louyipanel.jpg" alt="Hero 5" class="panel-image">
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" style="display: none;">
+    <img src="" alt="Zoomed Image" class="zoomed-image">    
+    <button class="close-zoom">X</button>
+</div>
+
+  <div class="hero-display" style="display: none;">
+    <div class="hero-content">
+      <img src="" alt="Hero Image" class="hero-image">
+      <p class="hero-description"></p> <!-- Deskripsi hero di sini -->
+      <div class="buttons">
+        <button class="show-skin">Tampilkan Skin</button>
+        <button class="back-to-panel">Kembali ke Panel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="skin-display" style="display: none;">
+    <div class="skin-content">
+      <div class="skin-grid">
+        <div class="skin-item">
+          <video class="skin-video" autoplay loop muted>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="skin-description"></p>
+        </div>
+        <div class="skin-item">
+          <video class="skin-video" autoplay loop muted>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="skin-description"></p>
+        </div>
+        <div class="skin-item">
+          <video class="skin-video" autoplay loop muted>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="skin-description"></p>
+        </div>
+      </div>
+      <button class="back-to-panel">Kembali ke Panel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body> 
+</html>
